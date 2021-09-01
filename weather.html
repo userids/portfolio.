@@ -1,0 +1,293 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather app</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* user-select: none; */
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #efefef;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            background: #dde1e7;
+            text-align: center;
+        }
+
+
+        .content .text {
+            font-size: 33px;
+            font-weight: 600;
+            margin-bottom: 35px;
+            color: #595959;
+        }
+
+        .field {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            position: relative;
+        }
+
+        .field:nth-child(2) {
+            margin-top: 20px;
+        }
+
+        .field input {
+            height: 100%;
+            width: 100%;
+            padding-left: 45px;
+            outline: none;
+            border: none;
+            font-size: 18px;
+            background: #dde1e7;
+            color: #595959;
+            border-radius: 25px;
+            box-shadow: inset 2px 2px 5px #BABECC,
+                inset -5px -5px 10px #ffffff73;
+        }
+
+        .field input:focus {
+            box-shadow: inset 1px 1px 2px #BABECC,
+                inset -1px -1px 2px #ffffff73;
+        }
+
+        .field span {
+            position: absolute;
+            color: #595959;
+            width: 50px;
+            line-height: 50px;
+        }
+
+        .field label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 45px;
+            pointer-events: none;
+            color: #666666;
+        }
+
+        .field input:valid~label {
+            opacity: 0;
+        }
+
+        .forgot-pass {
+            text-align: left;
+            margin: 10px 0 10px 5px;
+        }
+
+        .forgot-pass a {
+            font-size: 16px;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .forgot-pass:hover a {
+            text-decoration: underline;
+        }
+
+        button {
+            margin: 15px 0;
+            width: 100%;
+            height: 50px;
+            font-size: 18px;
+            line-height: 50px;
+            font-weight: 600;
+            background: #dde1e7;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: #595959;
+            box-shadow: 2px 2px 5px #BABECC,
+                -5px -5px 10px #ffffff73;
+        }
+
+        button:focus {
+            color: #3498db;
+            box-shadow: inset 2px 2px 5px #BABECC,
+                inset -5px -5px 10px #ffffff73;
+        }
+
+        .sign-up {
+            margin: 10px 0;
+            color: #595959;
+            font-size: 16px;
+        }
+
+        .sign-up a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .sign-up a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            height: 10%;
+            width: 10%;
+        }
+
+        button {
+            
+            background: #efefef;
+            border: none;
+            border-radius: .5rem;
+            color: #444;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: .2rem;
+            text-align: center;
+            outline: none;
+            cursor: pointer;
+            transition: .2s ease-in-out;
+            box-shadow: -6px -6px 14px rgba(255, 255, 255, .7),
+                -6px -6px 10px rgba(255, 255, 255, .5),
+                6px 6px 8px rgba(255, 255, 255, .075),
+                6px 6px 10px rgba(0, 0, 0, .15);
+        }
+
+        button:hover {
+            box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
+                -2px -2px 4px rgba(255, 255, 255, .4),
+                2px 2px 2px rgba(255, 255, 255, .05),
+                2px 2px 4px rgba(0, 0, 0, .1);
+        }
+
+        button:active {
+            box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+                inset -2px -2px 4px rgba(255, 255, 255, .5),
+                inset 2px 2px 2px rgba(255, 255, 255, .075),
+                inset 2px 2px 4px rgba(0, 0, 0, .15);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-wrap">
+        <div class="content">
+            <div class="text">
+                Weather App<span><img
+                        src='https://img-premium.flaticon.com/png/512/1840/premium/1840948.png?token=exp=1630490792~hmac=4d7da94c44cb67577188cab8ccfa158e' /></span>
+            </div>
+            <form action="#">
+                <div class="field">
+
+                    <input class='search-box' type='text' required>
+                    <span class="fas fa-user"></span>
+                    <label>Enter a city's name.</label>
+
+                </div><button onclick='set();'>Search</button>
+
+                <main><style>.temp{
+                    font-size:25px;
+                
+                }
+                .date{
+                    font-size: 25px;
+                }
+                .city{
+                    font-size:25px;
+                }
+                .weatherdescription{
+                    font-size: 25px;
+
+                }
+                .min-max{
+                    font-size: 25px;
+                }
+                </style>
+                    <section class="location">
+                        <div class="city">--------</div>
+                        <div class="date">--------</div>
+                    </section>
+                    <div class="now">
+                        <div class="temp">----<span>°C</span></div>
+                        <div class="weatherdescription">----</div>
+                        <div class="min-max">----°C/----°C</div>
+                    </div>
+                </main>
+        </div>
+        <script>
+            const api = {
+                key: "3e72e65f6fcc40cdc945ec86949035f3",
+                base: "https://api.openweathermap.org/data/2.5/"
+            }
+
+            const searchbox = document.querySelector('.search-box');
+            searchbox.addEventListener('keypress', setQuery);
+
+            function setQuery(evt) {
+                if (evt.keyCode == 13) {
+                    getResults(searchbox.value);
+                }
+            }
+            function set(){
+                getResults(searchbox.value);
+            }
+
+            function getResults(query) {
+                fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+                    .then(weather => {
+                        return weather.json();
+                    }).then(displayResults);
+            }
+
+            function displayResults(weather) {
+                let city = document.querySelector('.location .city');
+                city.innerText = `${weather.name}, ${weather.sys.country}`;
+
+                let now = new Date();
+                let date = document.querySelector('.location .date');
+                date.innerText = dateBuilder(now);
+
+                let temp = document.querySelector('.now .temp');
+                temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
+
+                let weather_el = document.querySelector('.now .weatherdescription');
+                weather_el.innerText = weather.weather[0].main;
+
+                let hilow = document.querySelector('.min-max');
+                hilow.innerText = `${Math.round(weather.main.temp_min)}°c / ${Math.round(weather.main.temp_max)}°c`;
+            }
+
+            function dateBuilder(d) {
+                let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
+                    "October", "November", "December"
+                ];
+                let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+                let day = days[d.getDay()];
+                let date = d.getDate();
+                let month = months[d.getMonth()];
+                let year = d.getFullYear();
+
+                return `${day} ${date} ${month} ${year}`;
+            }
+        </script>
+</body>
+
+</html>
